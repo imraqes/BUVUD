@@ -1,1 +1,228 @@
 /* You can add global styles to this file, and also import other style files */
+
+// BUVUD
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+@import url(https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css);
+// Color Variables
+
+$white-color : #e4ebf7;
+$red-color   : #f45b63;
+$blue-color  : #54a6de;
+$green-color : #57c059;
+$theme-color : #1b2133;
+
+
+// Fonts
+
+$font-family : 'Noto Sans', sans-serif;
+
+
+* {
+    box-sizing: border-box;
+    &:active,
+    &:hover,
+    &:focus {
+        outline: 0;
+    }
+}
+
+html {
+    height: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: $white-color;
+    font: 14px $font-family ;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+
+.badge{
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem;
+    margin-top: 4px;
+    vertical-align: middle;
+} 
+
+.badge-success{
+    color: $white-color;
+    background-color: $green-color;
+}
+
+
+
+app-root{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#wrapper-content {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+    main {
+        flex: auto;
+        padding: 0 15px;
+    }
+    app-sidebar {
+        position: absolute;
+        display: block;
+        width: 200px;
+        height: 100%;
+        margin-top: 0;
+        position: fixed;
+        color: $white-color;
+        box-shadow: 1px 0 2px rgba(0, 0, 0, 0.15);
+        z-index: 2;
+        background-color: $theme-color;
+        .topbar-left{
+            float: left;
+            position: relative;
+            width: 200px;
+            z-index: 1;
+
+            .logo{
+                color: $white-color;
+                font-size: 20px;
+                font-weight: 700;
+                letter-spacing: .05em;
+                line-height: 70px;
+                text-transform: uppercase;
+            }
+        }
+        .user-box{
+            img{
+                height: 3.5rem;
+                width: 3.5rem;
+            }
+            .name{
+                margin: 10px 0;
+            }
+        }
+        nav {
+            overflow: scroll;
+            width: auto;
+            height: calc(100vh - 200px);
+            ul {
+                margin: 0;
+                padding: 0;
+                .menu-title{
+                    padding: 10px 20px;
+                    letter-spacing: .05em;
+                    pointer-events: none;
+                    cursor: default;
+                    font-size: .6875rem;
+                    text-transform: uppercase;
+                    color: $white-color;
+                    font-weight: 600;
+                }
+                li {
+                    list-style-type: none;
+                    a {
+                        color: $white-color;
+                        display: block;
+                        padding: 13px 20px;
+                        position: relative;
+                        transition: all .4s;
+                        font-size: .95rem;
+                        &:hover {
+                            border-left: 2px solid $red-color;
+                            background-color: #0d1223;
+                        }
+                        &.active {
+                            border-left: 2px solid $red-color;
+                            background-color: #0d1223;
+                        }
+                        .material-icons {
+                        position: absolute;
+                        top: 10px;
+                        left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+app-toolbar {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    background-color: $white-color;
+    color: $theme-color;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+        0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    padding: 0 10px;
+    z-index: 10;
+    .toolbar__logo {
+        flex: 1;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .toolbar__lang {
+        background: inherit;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 2px;
+        padding: 5px 10px;
+    }
+    .toolbar__github {
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        min-width: 88px;
+        color: #fafafa;
+        line-height: 36px;
+        font-weight: 500;
+        text-align: center;
+        text-decoration: none;
+        outline: 0;
+        border: none;
+        border-radius: 2px;
+        white-space: nowrap;
+        vertical-align: baseline;
+        padding: 0 16px;
+        margin: 0;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: #394c9f;
+        }
+        img {
+            height: 26px;
+            vertical-align: middle;
+            margin: 0 4px 3px 0;
+        }
+    }
+}
+app-footer {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    height: 49px;
+    line-height: 49px;
+    color: #7d7d7d;
+    border-top: 1px solid #d5d5d5;
+    font-size: 12px;
+    overflow: hidden;
+    margin-left: 200px;
+    footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .footer__left {
+            flex: 1;
+        }
+    }
+}

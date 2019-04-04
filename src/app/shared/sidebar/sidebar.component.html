@@ -1,0 +1,31 @@
+<div class="topbar-left">
+    <div class="text-center">
+        <a href="/" class="logo">
+            BUVUD
+        </a>
+    </div>
+</div>
+<div class="user-box text-center">
+    <img src="https://media.licdn.com/dms/image/C5603AQGDIqaBXqVAuQ/profile-displayphoto-shrink_100_100/0?e=1559779200&v=beta&t=04fJ-ycQ-LGa4SlWISr5aMbCeO5jxd82AlHN9YMRt_g" 
+        title="Raka" class="rounded-circle avatar-md">
+    <div class="name">Rakesh Chand</div>
+    <p class="text-muted">Frontend Dev</p>
+</div>
+<nav>
+    <ul>
+        <li [ngClass]="{
+            'menu-title' : !item?.router
+        }" *ngFor="let item of items">
+            <span *ngIf="!item?.router">{{item?.title}}</span>
+            <ul>
+                <li *ngFor="let itm of item?.children">
+                    <a *ngIf="itm?.router" [routerLink]="itm?.router" [routerLinkActive]="'active'">
+                        <i class="{{itm?.icon}}"></i>
+                        <span class="badge badge-success float-right" *ngIf="itm?.count">{{itm?.count}}</span>
+                        <span> {{itm?.title}} </span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
